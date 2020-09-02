@@ -168,7 +168,7 @@ function handleMessage(sender_psid, message) {
         return;
     }
 
-    let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye" ];
+    let entitiesArr = [ "wit$greetings", "wit$thanks", "bye" ];
     let entityChosen = "";
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name);
@@ -181,15 +181,15 @@ function handleMessage(sender_psid, message) {
         //default
         callSendAPI(sender_psid,`The bot is needed more training, try to say "thanks a lot" or "hi" to the bot` );
     }else{
-       if(entityChosen === "wit$greetings"){
+       if(entityChosen === "greetings"){
            //send greetings message
            callSendAPI(sender_psid,'Hi there! This bot is created by Hary Pham. Watch more videos on HaryPhamDev Channel!');
        }
-       if(entityChosen === "wit$thanks"){
+       if(entityChosen === "thanks"){
            //send thanks message
            callSendAPI(sender_psid,`You 're welcome!`);
        }
-        if(entityChosen === "bye"){
+        if(entityChosen === "wit$bye"){
             //send bye message
             callSendAPI(sender_psid,'bye-bye!');
         }
