@@ -1,5 +1,5 @@
 {
-  "name": "botfacebooknodejs",
+  "name": "facebookbot",
   "version": "1.0.0",
   "description": "messenger bot nodejs witAI",
   "main": "server.js",
@@ -13,7 +13,7 @@
     "nodejs",
     "witAI"
   ],
-  "author": "Hary Pham",
+  "author": "Ujjal",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
