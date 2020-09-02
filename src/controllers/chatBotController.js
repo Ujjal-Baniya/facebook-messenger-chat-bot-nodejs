@@ -183,7 +183,7 @@ function handleMessage(sender_psid, message) {
     }else{
        if(entityChosen === "greetings"){
            //send greetings message
-           callSendAPI(sender_psid,'Hi there! This bot is created by Hary Pham. Watch more videos on HaryPhamDev Channel!');
+           callSendAPI(sender_psid,'Hello This is testBot for my friend Emmanuel Odenyire');
        }
        if(entityChosen === "thanks"){
            //send thanks message
@@ -193,6 +193,7 @@ function handleMessage(sender_psid, message) {
             //send bye message
             callSendAPI(sender_psid,'bye-bye!');
         }
+
     }
 }
 
