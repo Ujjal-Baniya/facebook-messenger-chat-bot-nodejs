@@ -154,8 +154,12 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
-function firstEntity(nlp, name) {
-    return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+// function firstTrait(nlp, name) {
+//     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+// }
+
+function firstTrait(nlp, name) {
+    return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
 }
 
 function handleMessage(sender_psid, message) {
@@ -171,7 +175,7 @@ function handleMessage(sender_psid, message) {
     let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye" ];
     let entityChosen = "";
     entitiesArr.forEach((name) => {
-        let entity = firstEntity(message.nlp, name);
+        let entity = firstTrait(message.nlp, name);
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
         }
@@ -181,11 +185,11 @@ function handleMessage(sender_psid, message) {
         //default
         callSendAPI(sender_psid,`The bot is needed more training, try to say "thanks a lot" or "hi" to the bot` );
     }else{
-       if(entityChosen === "greetings"){
+       if(entityChosen === "wit$greetings"){
            //send greetings message
            callSendAPI(sender_psid,'Hi there! This bot is created by Hary Pham. Watch more videos on HaryPhamDev Channel!');
        }
-       if(entityChosen === "thanks"){
+       if(entityChosen === "wit$thanks"){
            //send thanks message
            callSendAPI(sender_psid,`You 're welcome!`);
        }
